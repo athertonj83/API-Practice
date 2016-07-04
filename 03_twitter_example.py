@@ -13,12 +13,18 @@ day=int(now.day)
 month=int(now.month)
 year=int(now.year)
 
-CONSUMER_KEY = ""
-CONSUMER_SECRET = ""
-ACCESS_KEY = ""
-ACCESS_SECRET = ""
 
-t = Twython('CONSUMER_KEY','CONSUMER_SECRET','ACCESS_KEY','ACCESS_SECRET')
+#Bringing in my personal twitter keys
+with open("C:/Users/Jen/Documents/Python for Windows/twitter_auth.py") as f:
+    code = compile(f.read(), "C:/Users/Jen/Documents/Python for Windows/twitter_auth.py" , 'exec')
+    exec(code)
+
+CONSUMER_KEY = auth.ckey
+CONSUMER_SECRET = auth.csecret
+ACCESS_KEY = auth.accessk
+ACCESS_SECRET = auth.accesss
+
+t = Twython(CONSUMER_KEY,CONSUMER_SECRET,ACCESS_KEY,ACCESS_SECRET)
 
 screen_names = "jennifera83"
 

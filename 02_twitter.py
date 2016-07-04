@@ -1,4 +1,4 @@
-#02 using twitter - not got this working yet
+#02 using twitter - not got this working yet (problems with python and oauth?)
 import requests
 import oauth2 as oauth
 import json
