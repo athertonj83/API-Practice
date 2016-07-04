@@ -1,28 +1,23 @@
-#02 using twitter
+#02 using twitter - not got this working yet
 import requests
 import oauth2 as oauth
 import json
 
-# import os.path, sys
-# # Add current dir to search path.
-# sys.path.insert(1,'C:\Users\Jen\Documents\Python for Windows')
-# # Add module from the current directory.
-# sys.path.insert(1, os.path.dirname(os.path.abspath(os.path.realpath(__file__))) + "/dir")
-#
-# import twitter_auth
+#Bringing in my personal twitter keys
+with open("C:/Users/Jen/Documents/Python for Windows/twitter_auth.py") as f:
+    code = compile(f.read(), "C:/Users/Jen/Documents/Python for Windows/twitter_auth.py" , 'exec')
+    exec(code)
 
-
-
-CONSUMER_KEY = ""
-CONSUMER_SECRET = ""
-ACCESS_KEY = "-"
-ACCESS_SECRET = ""
+CONSUMER_KEY = auth.ckey
+CONSUMER_SECRET = auth.csecret
+ACCESS_KEY = auth.accessk
+ACCESS_SECRET = auth.accesss
 
 consumer = oauth.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
 access_token = oauth.Token(key=ACCESS_KEY, secret=ACCESS_SECRET)
 client = oauth.Client(consumer, access_token)
 
-client.verify_credentials()
+
 
 timeline_endpoint = "https://api.twitter.com/1.1/statuses/home_timeline.json?count=1"
 #response,data = client.request(timeline_endpoint)
@@ -35,16 +30,17 @@ this=client.request(timeline_endpoint)
 # print(type(data)) #byte type
 print("This is this:",this)
 print(type(this)) # tuple type
+#print(this['screen_name'])
 
-data5=response,data.json()
-print(data5)
+# data5=response,data.json()
+# print(data5)
 
 
 
 
 # Get the response data as a python object.  Verify that it's a dictionary.
-#data1 = data.json()
-#print(type(data1)) #dictionary
+data1 = this.json()
+print(type(data1)) #dictionary
 
 
 

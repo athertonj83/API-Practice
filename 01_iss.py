@@ -64,13 +64,14 @@ response = requests.get("http://api.open-notify.org/iss-pass.json", params=param
 
 # Get the response data as a python object.  Verify that it's a dictionary.
 data = response.json()
-print(type(data))
-print(data)
+print("This is the response type:",type(data))
+print("This is the response data:",data)
+#print(data["risetime"])
 
 
 # content type
 # Headers is a dictionary
-print(response.headers)
+print("These are the headers",response.headers)
 # Get the content-type from the dictionary.
 print(response.headers["content-type"])
 
@@ -80,6 +81,7 @@ print(response.headers["content-type"])
 response = requests.get("http://api.open-notify.org/astros.json")
 data = response.json()
 
-# 9 people are currently in space.
+# 3 people are currently in space.
 print(data["number"])
 print(data)
+print(data['people'])
