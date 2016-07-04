@@ -1,0 +1,18 @@
+Twitter data for jennifera83
+
+id : 186859150
+screen_name : JenniferA83
+name : Jennifer Atherton
+created_at : Sat Sep 04 16:06:03 +0000 2010
+url : None
+followers_count : 28
+friends_count : 45
+statuses_count : 663
+favourites_count : 48
+listed_count : 0
+contributors_enabled : False
+description : 
+protected : False
+location : London
+lang : en
+expanded_url : 

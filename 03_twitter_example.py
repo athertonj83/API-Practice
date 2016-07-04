@@ -27,7 +27,6 @@ ACCESS_SECRET = auth.accesss
 t = Twython(CONSUMER_KEY,CONSUMER_SECRET,ACCESS_KEY,ACCESS_SECRET)
 
 screen_names = "jennifera83"
-
 users = t.lookup_user(screen_name = screen_names)
 
 outfn = "twitter_user_data_%i.%i.%i.txt" % (now.month, now.day, now.year)
@@ -36,8 +35,10 @@ fields = "id screen_name name created_at url followers_count friends_count statu
     favourites_count listed_count \
     contributors_enabled description protected location lang expanded_url".split()
 
+print("This is string:",string)
 outfp = open(outfn, "w")
-outfp.write(string.join(fields, "\t") + "\n")  # header
+#outfp.write("\t".join(string) + "\n")  # header
+outfp.write("Twitter data for " + screen_names + "\n")
 
 #THE VARIABLE 'USERS' CONTAINS INFORMATION OF THE 32 TWITTER USER IDS LISTED ABOVE
 #THIS BLOCK WILL LOOP OVER EACH OF THESE IDS, CREATE VARIABLES, AND OUTPUT TO FILE
@@ -68,13 +69,19 @@ for entry in users:
         r['expanded_url'] = entry['entities']['url']['urls'][0]['expanded_url']
     else:
         r['expanded_url'] = ''
-    print(r)
-    #CREATE EMPTY LIST
-    lst = []
-    #ADD DATA FOR EACH VARIABLE
+    # #CREATE EMPTY LIST
+    # lst = []
+    # #ADD DATA FOR EACH VARIABLE
+    # for f in fields:
+    #     lst.append(r[f])
+    # print("This is lst:",lst)
+
+    #INTO A STRING (JA)
+    str1=""
     for f in fields:
-        lst.append(unicode(r[f]).replace("\/", "/"))
+        str1=str1+str(f)+" : "+str(r[f])+"\n"
+    print("This is str1:",str1)
     #WRITE ROW WITH DATA IN LIST
-    outfp.write(string.join(lst, "\t").encode("utf-8") + "\n")
+    outfp.write("\n"+ str1)
 
 outfp.close()
