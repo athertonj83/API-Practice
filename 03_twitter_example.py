@@ -29,7 +29,7 @@ t = Twython(CONSUMER_KEY,CONSUMER_SECRET,ACCESS_KEY,ACCESS_SECRET)
 screen_names = "jennifera83"
 users = t.lookup_user(screen_name = screen_names)
 
-outfn = "twitter_user_data_%i.%i.%i.txt" % (now.month, now.day, now.year)
+outfn = "twitter_user_data_%i.%i.%i.txt" % (now.day, now.month, now.year)
 
 fields = "id screen_name name created_at url followers_count friends_count statuses_count \
     favourites_count listed_count \
