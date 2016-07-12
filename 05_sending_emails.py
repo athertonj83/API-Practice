@@ -17,11 +17,8 @@ msg="This is the message"
 #james_msg="I'm sending this using Python! x"
 
 server = smtplib.SMTP('smtp.gmail.com', 587)
-print("Y")
 server.starttls()
-print("X")
 server.login(email,pword)
-print("C")
 server.sendmail(email,to_email,msg)
 #server.sendmail(email,to_james,james_msg)
 server.quit()
